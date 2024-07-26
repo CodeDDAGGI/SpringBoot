@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ProductMapper에 우클릭하고 Copy path/referance 에 디렉토리 주소값을 넣어줌(interface랑 연결)-->
+<mapper namespace="com.study.rest.repository.ProductMapper">
+    <!-- insert, delete , update? 리턴 타입이 int select만 리턴 타입이 있음 -->
+    <insert id="save" parameterType="com.study.rest.entity.Product">
+        insert into product_tb
+        values
+            (0, #{product.Name} , #{price}, #{sizeId} , #{colorId})
+    </insert>
+</mapper>

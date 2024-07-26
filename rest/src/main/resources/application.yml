@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+    group:
+      local: local , common, secret
+# local : 개발단계 localhost
+--- #하나의 파일에 --- 나눈다
+  #group은 그룹을 지어서 설정 값들을 사용할수 있음 (local 이 여러개 일시 active에 값을 변경시 해당 그룹을 사용할수 있음)
+
+spring:
+  config:
+    activate:
+      on-profile:
+        - local
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        - common
+  output:
+    ansi:
+      enabled: ALWAYS
+mybatis:
+  mapper-locations:
+    - /mappers/*.xml
+

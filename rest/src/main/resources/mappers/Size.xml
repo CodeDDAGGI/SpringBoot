@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ProductMapper에 우클릭하고 Copy path/referance 에 디렉토리 주소값을 넣어줌(interface랑 연결)-->
+<!-- xml 클래스고 <mapper namespace="com.study.rest.repository.SizeMapper"> imprements 라고 생각해야댐-->
+<mapper namespace="com.study.rest.repository.SizeMapper">
+    <!-- mybatis 플러그인 설치를 해서 가능  -->
+    <insert id="save" parameterType="com.study.rest.entity.Size">
+        insert into size_tb
+        values(0, #{sizeName})
+
+    </insert>
+    <select id="findAll" resultType="com.study.rest.entity.Size">
+        select
+            sizeId,
+            sizeName
+        from
+            size_tb
+        order by
+            sizeId
+    </select>
+</mapper>

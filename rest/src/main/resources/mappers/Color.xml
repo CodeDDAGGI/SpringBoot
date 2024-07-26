@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mybatis가 xml > class로 바꿔주면서 ioc에 자동 등록해줌 -->
+<!-- ProductMapper에 우클릭하고 Copy path/referance 에 디렉토리 주소값을 넣어줌(interface랑 연결)-->
+<mapper namespace="com.study.rest.repository.ColorMapper">
+    <insert id="save">
+        insert into color_tb
+        values (0 , #{colorName})
+    </insert>
+    <!-- id : 메소드 명 resultType : 해당 객체 -->
+    <select id="findAll" resultType="com.study.rest.entity.Color">
+        select
+            colorId,
+            colorName
+        from
+            color_tb
+        order by
+            colorId
+    </select>
+</mapper>
